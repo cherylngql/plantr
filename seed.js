@@ -46,4 +46,18 @@ db.sync({force: true})
   })
   .finally(() => {
     db.close();
-  });
+  })
+
+  // Why doesn't the following work? 
+  // somePromise.then(() => {
+  //   console.log(someValue);
+  // })
+  // .catch(error => {
+  //   console.log(error);
+  // })
+  // .finally(() => {
+  //   if (db) {
+  //     db.close();
+  //   }
+  // });
+  // Unhandled rejection Error: ConnectionManager.getConnection was called after the connection manager was closed!
