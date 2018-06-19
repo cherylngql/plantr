@@ -27,9 +27,15 @@ const Vegetable = db.define('vegetable', {
     type: Sequelize.STRING
   },
   planted_on: {
-    type: Sequelize.DATE
+    type: Sequelize.DATE,
+    defaultValue: Sequelize.NOW
   }
-});
+}, {
+  hooks: {
+  beforeValidate: (vegetable, options) => {
+    vegetable.planted_on = vegetable.createdAt;
+  }
+}});
 
 Plot.belongsTo(Gardener);
 
