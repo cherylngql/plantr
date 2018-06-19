@@ -38,6 +38,7 @@ const Vegetable = db.define('vegetable', {
 }});
 
 Plot.belongsTo(Gardener);
+Gardener.hasOne(Plot);
 
 Gardener.belongsTo(Vegetable, {as: 'favourite_vegetable'});
 

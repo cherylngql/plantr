@@ -20,8 +20,8 @@ app.get('/gardeners', (req, res) => {
   html`<li>
     Farmer ${gardener.id}: <a href="/gardeners/${gardener.id}">${gardener.name}</a><br/>
     Age: ${gardener.age}<br/>
-    Plot: <a href="/plots/${Plot.findOne({where: {gardenerId: gardener.id}})}">${gardener.name}'s plot</a><br/>
-    Favourite Vegetable: ${Vegetable.findOne({where: {id: gardener.favouriteVegetableId}})}
+    Plot: <a href="/plots/${gardener.getPlot()}">${gardener.name}'s plot</a><br/>
+    Favourite Vegetable: ${gardener.getFavourite_vegetable()}
   </li>`)}
       </ul>
     </ul>`);

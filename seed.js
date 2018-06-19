@@ -39,7 +39,8 @@ db.sync({force: true})
     return spinach.addPlots([plotCh, plotMe], {returning: true});
   })
   .then(() => {
-    return corn.addPlots(plots);
+    return corn.addPlots(plots); // we want to return a promise if not .catch & .finally
+    // will run before the database is updated!!!
   })
   .catch(error => {
     console.log(error);
