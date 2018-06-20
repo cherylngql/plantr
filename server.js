@@ -38,7 +38,7 @@ app.get('/gardeners/:gardenerId', (req, res) => {
     <h3>${gardener.name}'s plot has size ${gardener.plot.size}</h3>
     <ul class="box">
       ${gardener.plot.vegetables.map(vegetable => html`
-        <li>${vegetable.name} (${vegetable.color})</li>
+        <li style="color: ${vegetable.color.toLowerCase()}">${vegetable.name}</li>
       `)}
     </ul>
     `);
